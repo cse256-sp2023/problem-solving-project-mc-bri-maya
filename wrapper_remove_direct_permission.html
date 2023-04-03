@@ -60,6 +60,7 @@
             <br />
         </div>
         <div id="mturk-top-banner">
+
             <span id="mturk-top-banner-span-outer">
                 <span id="mturk-top-banner-span">
                     <div class="top-banner-div" id="mturk-top-banner-back-div">
@@ -83,6 +84,35 @@
             </span>
         </div>
         <div id="wrapper">
+
+            <div>            <p>The Basics:
+                What are the options for each permission?
+                Allow: gives users access to a given  permission
+                Deny: denies access to a given permission and overrides “Allow” when both are checked 
+                What are the different types of permissions?
+                The permissions for each user are organized into 6 main categories as listed below.  Changes applied to the general category will affect those listed under it, so be careful! 
+                Read:		
+                read attributes		
+                read extended attributes
+                read permissions	
+                Write
+                create files/write data		
+                create folders/append data
+                Read_Execute
+                traverse folder/execute file
+                list folder/read contents	
+                Modify
+                write attributes		
+                write extended attributes
+                delete subfolders and files		
+                delete
+                Full_control
+                Access to all permissions
+                Specical_permissions
+                change permissions		
+                take ownership
+                </p></div>
+
             <div data-app="gender-mag" data-mode="tracker" id="html-loc">
                 <!-- div where file and folder structure will be generated:-->
                 <div id="filestructure"></div>
@@ -95,13 +125,7 @@
                     <span id="perm_entry_username" class="ui-widget-content section"
                         style="width:200px;display:inline-block;"></span>
                     <button id="perm_entry_change_user" class="ui-button ui-widget ui-corner-all">Change...</button>
-                    <table id="perm_entry_table" class="ui-widget-content section">
-                        <tr id="perm_entry_header">
-                            <th id="perm_entry_header_p" width="99%">Permissions</th>
-                            <th id="perm_entry_header_allow">Allow</th>
-                            <th id="perm_entry_header_deny">Deny</th>
-                        </tr>
-                    </table>
+ 
                 </div>
                 <!-- structure for the Advanced dialog: -->
                 <div title="Advanced Security Settings" id="advdialog" style="overflow:hidden">

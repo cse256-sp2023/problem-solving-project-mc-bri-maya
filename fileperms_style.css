@@ -36,3 +36,10 @@
 .no-close .ui-dialog-titlebar-close {
     display: none;
 }
+
+#intern_subproject_permbutton {
+border-color: red;
+border-width: 2px;
+border-radius: 1px;
+
+}

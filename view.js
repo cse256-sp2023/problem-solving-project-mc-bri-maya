@@ -1,7 +1,11 @@
 // ---- Define your dialogs  and panels here ----
+$("#filestructure").before(`<img class="header-image" src="added_files/guide.png"/>`);
 
-
-
+for(let root_file of root_files) {
+    let file_elem = make_file_element(root_file)
+    $( "#filestructure" ).append( file_elem);    
+}
+$(".header-image").css("max-width", "80%");
 // ---- Display file structure ----
 
 // (recursively) makes and returns an html element (wrapped in a jquery object) for a given file object
