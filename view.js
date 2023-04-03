@@ -1,36 +1,48 @@
 // ---- Define your dialogs  and panels here ----
 // Create a container to hold the file structure and images
 $("#filestructure").before(`
-  <div id="container">
-  <div id="image-container">
-  <img class="header-image" src="added_files/1-user-guide.png"/>
-  <img class="header-image" src="added_files/2-user-guide.png"/>
-  <img class="header-image" src="added_files/3-user-guide.png"/>
-  <img class="header-image" src="added_files/4-user-guide.png"/>
-</div>
-    <div id="filestructure-container">
+
+<div class="float-container">
+
+    <div id="image-container" class="float-child">
+        <img class="header-image" src="added_files/1-user-guide.png"/>
+        <img class="header-image" src="added_files/2-user-guide.png"/>
+        <img class="header-image" src="added_files/3-user-guide.png"/>
+        <img class="header-image" src="added_files/4-user-guide.png"/>
+    </div>
+
+    <div id="filestructure-container" class="float-child">
       <div id="filestructure"></div>
     </div>
 
-  </div>
+</div>
+
 `);
 
 // Style the container and the file structure container to display them side by side
-$("#container").css({
-  "display": "flex",
+$(".float-container").css({
+  "padding":"2px"
 });
 $("#ui-id-10").css({
    
 });
+$(".float-child").css({
+    "float":"left",
+    "padding":"10px"
+});
 $("#filestructure-container").css({
-  "flex": "1"
+    "margin-top":"50px",
+    "width":"45%"
 
 });
+$("#image-container").css({
+    "width":"50%"
+  
+  });
 // Remove the individual image insertions
-$("#image-container .header-image").css({
-  "max-width": "60%",
-  "display": "block"
-});
+ $("#image-container .header-image").css({
+   "max-width": "100%",
+ });
 
 
 // ---- Display file structure ----

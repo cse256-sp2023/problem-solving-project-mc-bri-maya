@@ -45,5 +45,11 @@ border-radius: 1px;
 }
 
 #ui-id-10{
-    width:200%
+    /* width:100% */
+}
+
+#image-container{
+    border-color:red;
+    border-width:5px;
+    border-radius: 1px;
 }
