@@ -98,6 +98,9 @@ $("#filestructure").before(`
 </div>
 
 <div class="float-container">
+    <br>
+    <a class="instructions" href="added_files/instructions.html" title="Prev"><b>Instructional Guide (right click to open in new tab!)</b></a>
+    <br><br>
 
     <div id="filestructure-container" class="float-child">
       <div id="filestructure"></div>
