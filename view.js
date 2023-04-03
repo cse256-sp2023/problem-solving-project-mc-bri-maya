@@ -1,11 +1,38 @@
 // ---- Define your dialogs  and panels here ----
-$("#filestructure").before(`<img class="header-image" src="added_files/guide.png"/>`);
+// Create a container to hold the file structure and images
+$("#filestructure").before(`
+  <div id="container">
+  <div id="image-container">
+  <img class="header-image" src="added_files/1-user-guide.png"/>
+  <img class="header-image" src="added_files/2-user-guide.png"/>
+  <img class="header-image" src="added_files/3-user-guide.png"/>
+  <img class="header-image" src="added_files/4-user-guide.png"/>
+</div>
+    <div id="filestructure-container">
+      <div id="filestructure"></div>
+    </div>
 
-for(let root_file of root_files) {
-    let file_elem = make_file_element(root_file)
-    $( "#filestructure" ).append( file_elem);    
-}
-$(".header-image").css("max-width", "80%");
+  </div>
+`);
+
+// Style the container and the file structure container to display them side by side
+$("#container").css({
+  "display": "flex",
+});
+$("#ui-id-10").css({
+   
+});
+$("#filestructure-container").css({
+  "flex": "1"
+
+});
+// Remove the individual image insertions
+$("#image-container .header-image").css({
+  "max-width": "60%",
+  "display": "block"
+});
+
+
 // ---- Display file structure ----
 
 // (recursively) makes and returns an html element (wrapped in a jquery object) for a given file object
