@@ -8,8 +8,17 @@
 }
 
 .ui-selected { 
-    background: #007fff; 
+    background: #0070e0; 
     color: white; 
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active {
+    background-color: #0070e0;
+    border: 1px solid #0031c5;
+}
+
+.ui-accordion strong {
+    padding-right: 2%;
 }
 
 .footer {
