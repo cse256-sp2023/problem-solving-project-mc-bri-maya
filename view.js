@@ -1,125 +1,74 @@
 // ---- Define your dialogs  and panels here ----
-// Create a container to hold the file structure and images
+//Making a new permissions panel to display permissions for a given user and file
+var newEP = define_new_effective_permissions("new_permission", add_info_col = true, which_permissions = null)
+//Displaying the panel
 
+//Selecting user 
+var newUser = define_new_user_select_field("new_permission", "Select User", function (selected_user) {
+    $('#new_permission').attr('username', selected_user);
+});
+
+function get_file_info() {
+    const fileinfo= [];
+
+    $('.permbutton').each(function () {
+        const filepath = $(this).attr('path');
+        const filename = filepath.replace(/^.*[\\\/]/, ''); // Use extractFileName() to get the file name from the file path
+        fileinfo.push({ filepath, filename });
+    });
+
+    console.log('Visible Files:', fileinfo);
+    return fileinfo;
+}
+
+
+function file_dropdown() {
+    const info = get_file_info();
+    const dropdown = $('<select class="dropdown"><option value="">Select a file</option></select>');
+
+    info.forEach(({ filepath, filename }) => {
+        dropdown.append(`<option value="${filepath}">${filename}</option>`);
+    });
+
+    dropdown.on('change', function () {
+        $('#new_permission').attr('filepath', $(this).val());
+    });
+
+    return dropdown;
+}
+
+
+
+
+//Create a container to hold the file structure and images
 var steps = ["added_files/1-user-guide.png", "added_files/2-user-guide.png", "added_files/3-user-guide.png", "added_files/4-user-guide.png"];
 
-$("#filestructure").before(`
+$("#sidepanel").after(`
 
-<div class="slider-container">
-  <div class="slider">
-        <div class="slides">
-
-            <div id="slides__1" class="slide">
-                <span class="slide__text">
-                    <h2 class="title-phrase">Step-by-Step Guide to Change Permissions</h2>
-                </span>
-                <a class="slide__prev" href="#slides__7d" title="Next"></a>
-                <a class="slide__next" href="#slides__2" title="Next"></a>
-            </div>
-
-            <div id="slides__2" class="slide">
-                <span class="slide__text">
-                    <img class="slide-image" src="added_files/Step1.png"/>
-                </span>
-                <a class="slide__prev" href="#slides__1" title="Prev"></a>
-                <a class="slide__next" href="#slides__3" title="Next"></a>
-            </div>
-
-            <div id="slides__3" class="slide">
-                <span class="slide__text">
-                    <img class="slide-image" src="added_files/Step2.png"/>
-                </span>
-                <a class="slide__prev" href="#slides__2" title="Prev"></a>
-                <a class="slide__next" href="#slides__4" title="Next"></a>
-            </div>
-
-            <div id="slides__4" class="slide">
-                <span class="slide__text">
-                    <img class="slide-image" src="added_files/Step3.png"/>
-                </span>
-                <a class="slide__prev" href="#slides__3" title="Prev"></a>
-                <a class="slide__next" href="#slides__5" title="Prev"></a>
-            </div>
-
-            <div id="slides__5" class="slide">
-                <span class="slide__text">
-                    <img class="slide-image" src="added_files/Step4.png"/>
-                </span>
-                <a class="slide__prev" href="#slides__4" title="Prev"></a>
-                <a class="slide__next" href="#slides__6" title="Prev"></a>
-            </div>
-
-            <div id="slides__6" class="slide">
-                <span class="slide__text">
-                    <img class="slide-image" src="added_files/Step5.png"/>
-                </span>
-                <a class="slide__prev" href="#slides__5" title="Prev"></a>
-                <a class="slide__next" href="#slides__7a" title="Prev"></a>
-            </div>
-
-            <div id="slides__7a" class="slide">
-                <span class="slide__text">
-                    <img class="slide-image" src="added_files/Step6.png"/>
-                </span>
-                <a class="slide__prev" href="#slides__6" title="Prev"></a>
-                <a class="slide__next" href="#slides__7b" title="Prev"></a>
-            </div>
-
-            <div id="slides__7b" class="slide">
-                <span class="slide__text">
-                    <img class="slide-image" src="added_files/Step7a.png"/>
-                </span>
-                <a class="slide__prev" href="#slides__7a" title="Prev"></a>
-                <a class="slide__next" href="#slides__7c" title="Prev"></a>
-            </div>
-
-            <div id="slides__7c" class="slide">
-                <span class="slide__text">
-                    <img class="slide-image" src="added_files/Step7b.png"/>
-                </span>
-                <a class="slide__prev" href="#slides__7b" title="Prev"></a>
-                <a class="slide__next" href="#slides__7d" title="Prev"></a>
-            </div>
-
-            <div id="slides__7d" class="slide">
-                <span class="slide__text">
-                    <img class="slide-image" src="added_files/Step7c.png"/>
-                </span>
-                <a class="slide__prev" href="#slides__7c" title="Prev"></a>
-                <a class="slide__next" href="#slides__1" title="Prev"></a>
-            </div>
-
-        </div>
-
-
-        </div>
-    
-    </div>
-</div>
-
-<div class="float-container">
-    <br>
-    <a class="instructions" href="added_files/instructions.html" title="Prev"><b>Instructional Guide (right click to open in new tab!)</b></a>
-    <br><br>
-
-    <div id="filestructure-container" class="float-child">
-      <div id="filestructure"></div>
-    </div>
+<div class="slider-container">      
+        <img class="slide-image" src="added_files/1-user-guide.png"/>
+        <img class="slide-image" src="added_files/2-user-guide.png"/>
+        <img class="slide-image" src="added_files/3-user-guide.png"/>
+        <img class="slide-image" src="added_files/4-user-guide.png"/>
 
 </div>
 
 `);
 
-// $(window).on('unload', function() {
-//     $(window).scrollTop(0);
-//  });
+$(window).on('unload', function() {
+    $(window).scrollTop(0);
+ });
 
-// Style the container and the file structure container to display them side by side
+//Style the container and the file structure container to display them side by side
 $(".float-container").css({
   "padding":"2px",
   "align-items":"center"
+  
 });
 
+$(".slide-image").css({
+    "max-width": "20%"
+  });
 
 
 // ---- Display file structure ----
@@ -206,3 +155,12 @@ $('.permbutton').click( function( e ) {
 
 // ---- Assign unique ids to everything that doesn't have an ID ----
 $('#html-loc').find('*').uniqueId() 
+
+$("#sidepanel").append(`<div class = "file">CHECK the permissions for the relevant user and file before submitting!</div>`)
+
+
+$('#sidepanel').append(newEP)
+
+$('#sidepanel').append(newUser)
+
+$('#sidepanel').append(file_dropdown());
