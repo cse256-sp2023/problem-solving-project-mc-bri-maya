@@ -33,7 +33,7 @@ function define_attribute_observer(watched_elem_selector, watched_attribute, on_
 // and also adds any attributes you pass along
 function make_user_elem(id_prefix, uname, user_attributes=null) {
     user_elem = $(`<div class="ui-widget-content" id="${id_prefix}_${uname}" name="${uname}">
-        <span id="${id_prefix}_${uname}_icon" class="oi ${is_user(all_users[uname])?'oi-person':'oi-people'}"/> 
+        <span id="${id_prefix}_${uname}_icon" class="fa ${is_user(all_users[uname])?'fa-user':'fa-users'}"/> 
         <span id="${id_prefix}_${uname}_text">${uname} </span>
     </div>`)
 
@@ -228,7 +228,7 @@ function define_grouped_permission_checkboxes(id_prefix, which_groups = null) {
             <td id="${id_prefix}_${g}_name">${g}</td>
         </tr>`)
         for(let ace_type of ['allow', 'deny']) {
-            row.append(`<td id="${id_prefix}_${g}_${ace_type}_cell">
+            row.append(`<td id="${id_prefix}_${g}_${ace_type}_cell" style="text-align:center;">
                 <input type="checkbox" id="${id_prefix}_${g}_${ace_type}_checkbox" ptype="${ace_type}" class="groupcheckbox" group="${g}" ></input>
             </td>`)
         }
@@ -436,7 +436,7 @@ all_user_elements = make_user_list('user_select', all_users)
 all_users_selectlist.append(all_user_elements)
 
 // Make the dialog:
-user_select_dialog = define_new_dialog('user_select_dialog2', 'Select User', {
+user_select_dialog = define_new_dialog('user_select_dialog2', 'Select Group/User', {
     buttons: {
         Cancel: {
             text: "Cancel",
@@ -479,7 +479,7 @@ function open_user_select_dialog(to_populate_id) {
 function define_new_user_select_field(id_prefix, select_button_text, on_user_change = function(selected_user){}){
     // Make the element:
     let sel_section = $(`<div id="${id_prefix}_line" class="section">
-            <span id="${id_prefix}_field" class="ui-widget-content" style="width: 80%;display: inline-block;">&nbsp</span>
+            <span id="${id_prefix}_field" class="ui-widget-content" style="width: 40%;display: inline-block;margin-left:5px;">&nbsp</span>
             <button id="${id_prefix}_button" class="ui-button ui-widget ui-corner-all">${select_button_text}</button>
         </div>`)
 

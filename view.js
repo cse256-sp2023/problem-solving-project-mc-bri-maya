@@ -4,7 +4,7 @@ var newEP = define_new_effective_permissions("new_permission", add_info_col = tr
 //Displaying the panel
 
 //Selecting user 
-var newUser = define_new_user_select_field("new_user", "Select User", function (selected_user) {
+var newUser = define_new_user_select_field("new_user", "Select Group/User", function (selected_user) {
     $('#new_permission').attr('username', selected_user);
 });
 
@@ -24,7 +24,7 @@ function get_file_info() {
 
 function file_dropdown() {
     const info = get_file_info();
-    const dropdown = $('<select class="dropdown"><option value="">Select a file</option></select>');
+    const dropdown = $('<select class="dropdown"><option value="">Select Folder/File</option></select>');
 
     info.forEach(({ filepath, filename }) => {
         dropdown.append(`<option value="${filepath}">${filename}</option>`);
@@ -138,7 +138,7 @@ $('#html-loc').find('*').uniqueId()
 
 // Title Effective Perms panel
 $("#sidepanel").append(`<div class="current-perms-panel-title"><h2>Current Permissions</h2></div>`)
-$("#sidepanel").append(`<div class="file">Select a user and folder/file to <strong>check</strong> the user's current permissions for the selected folder/file.</div>`)
+$("#sidepanel").append(`<div class="current-perms-desc">Select a user and folder/file to <strong>check</strong> the user's current permissions for the selected folder/file.<br>Make sure to <strong>re-select</strong> user to see the changes to permissions.</div>`)
 $('#sidepanel').append(newUser)
 
 $('#sidepanel').append(file_dropdown());

@@ -104,20 +104,20 @@
                     </table>
                 </div>
                 <!-- structure for the Advanced dialog: -->
-                <div title="Advanced Security Settings" id="advdialog" style="overflow:hidden">
+                <div title="Advanced Security Settings" id="advdialog" style="overflow:hidden;">
                     <div id="advtabs">
                         <ul id="advtabs_titles">
                             <li id="advtab_title_permissions"><a href="#adv_permissions_tab"
                                     id="adv_permissions_tab_elem">Permissions</a></li>
                             <li id="advtab_title_owner"><a href="#adv_owner_tab" id="adv_owner_tab_elem">Owner</a></li>
                             <li id="advtab_title_effective"><a href="#adv_effective_tab"
-                                    id="adv_effective_tab_elem">Effective Permissions</a></li>
+                                    id="adv_effective_tab_elem">Effective (Current) Permissions</a></li>
                         </ul>
                         <div id="adv_permissions_tab">
-                            <div id="adv_perm_object_name" class="section">Object Name: <span
-                                    id="adv_perm_filepath"></span></div>
-                            <div id="adv_perm_entries_text">Permission entries:</div>
-                            <div id="adv_perm_table_container" style="height:100px;overflow-y:scroll"
+                            <div id="adv_perm_object_name" class="section"><strong>Object Name: </strong><span
+                                    id="adv_perm_filepath"></span></div><br>
+                            <div id="adv_perm_entries_text"><strong>Permission Entries:</strong></div>
+                            <div id="adv_perm_table_container" style="height:150px;overflow-y:scroll"
                                 class="ui-widget-content section">
                                 <table id="adv_perm_table" width="100%">
                                     <tr id="adv_perm_header">
@@ -129,10 +129,11 @@
                                 </table>
                             </div>
                             <button id="adv_perm_edit" class="ui-button ui-widget ui-corner-all">Edit...</button>
+                            <br><br><strong>Inheritance Settings:</strong>
                             <div id="adv_perm_inheritance_div">
                                 <input type="checkbox" id="adv_perm_inheritance" name="inherit">
                                 <label for="adv_perm_inheritance" id="adv_perm_inheritance_label">Include inheritable
-                                    permissions from this object's parent</label>
+                                    permissions from this object's parent folder.</label>
                             </div>
                             <div id="adv_perm_replace_child_div">
                                 <input type="checkbox" id="adv_perm_replace_child_permissions" name="replace_child">
@@ -144,28 +145,28 @@
                         <div id="adv_owner_tab">
                             <div id="adv_owner_explanation" class="section">You can take or assign ownership of this
                                 object if you have the required permissions or privileges.</div>
-                            <div id="adv_owner_object_name" class="section">Object Name: <span
-                                    id="adv_owner_filepath"></span></div>
-                            <div id="adv_owner_current_owner_text">Current owner:</div>
-                            <div id="adv_owner_current_owner" class="ui-widget-content section"></div>
-                            <div id="adv_owner_change_owner_text">Change owner to:</div>
+                            <div id="adv_owner_object_name" class="section"><strong>Object Name: </strong><span
+                                    id="adv_owner_filepath"></span></div><br>
+                            <div id="adv_owner_current_owner_text"><strong>Current Owner:</strong></div>
+                            <div id="adv_owner_current_owner" class="ui-widget-content section"></div><br>
+                            <div id="adv_owner_change_owner_text"><strong>Change owner to:</strong></div>
                             <div id="adv_owner_user_list"></div>
                             <button id="adv_owner_change_button" class="ui-button ui-widget ui-corner-all">Change
                                 Owner</button>
                         </div>
                         <div id="adv_effective_tab">
-                            <div id="adv_effective_object_name" class="section">Object Name: <span
-                                    id="adv_effective_filepath"></span></div>
-                            <div id="adv_effective_user_text">Group or user name:</div>
+                            <div id="adv_effective_object_name" class="section"><strong>Object Name: </strong><span
+                                    id="adv_effective_filepath"></span></div><br>
+                            <div id="adv_effective_user_text"><strong>Group/User</strong></div>
                             <div id="adv_effective_current_user_line" class="section">
                                 <span id="adv_effective_current_user" class="ui-widget-content"
-                                    style="width: 80%;display: inline-block;">&nbsp</span>
+                                    style="width: 70%;display: inline-block;">&nbsp</span>
                                 <button id="adv_effective_user_select"
-                                    class="ui-button ui-widget ui-corner-all">Select...</button>
-                            </div>
-                            <div id="adv_effective_effective_text">Effective permissions:</div>
+                                    class="ui-button ui-widget ui-corner-all">Select Group/User</button>
+                            </div><br>
+                            <div id="adv_effective_effective_text"><strong>Effective (Current) Permissions:</strong></div>
                             <div id="adv_effective_effective_list" class="ui-widget-content"
-                                style="height:150px;overflow-y:scroll"></div>
+                                style="height:270px;overflow-y:scroll"></div>
                         </div>
                     </div>
                 </div>
