@@ -317,7 +317,7 @@ $( "#advtabs" ).tabs({
 });
 let adv_contents = $(`#advdialog`).dialog({
     position: { my: "top", at: "top", of: $('#html-loc') },
-    width: 700,
+    width: 750,
     height: 620,
     modal: true,
     autoOpen: false,
