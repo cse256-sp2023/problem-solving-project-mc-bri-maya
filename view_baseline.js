@@ -32,7 +32,7 @@ perm_dialog = define_new_dialog('permdialog', title='Permissions', options = {
 obj_name_div = $('<div id="permdialog_objname" class="section"><strong>Object Name: </strong><span id="permdialog_objname_namespan"></span> </div><br>')
 
 //Make the div with the explanation about special permissions/advanced settings:
-advanced_expl_div = $('<div id="permdialog_advanced_explantion_text"><strong style="color: #007fff">Blue Check: </strong><em>Explicit permission</em>; this is directly editable<br><strong style="color: #808080;">Gray Check: </strong>Permission is <em>inherited</em> from parent folder; view Advanced Settings to edit<br><br>For special permissions, inheritance settings, or other advanced settings, click <strong>Advanced Settings</strong>.</div>')
+advanced_expl_div = $('<div id="permdialog_advanced_explantion_text"><strong style="color: #007fff">Blue ✓: </strong><em>Explicit permission</em>; this is directly editable<br><strong style="color: #808080;">Gray ✓: </strong>Permission is <em>inherited</em> from parent folder; view Advanced Settings to edit<br><br>For special permissions, inheritance settings, or other advanced settings, click <strong>Advanced Settings</strong>.</div>')
 
 // Make the (grouped) permission checkboxes table:
 grouped_permissions = define_grouped_permission_checkboxes('permdialog_grouped_permissions')
@@ -353,8 +353,8 @@ $('#adv_perm_inheritance').change(function(){
     else {
         // has just been turned off - pop up dialog with add/remove/cancel
         $(`<div id="add_remove_cancel" title="Security">
-            <strong>Warning:</strong> if you proceed, inheritable permissions will no longer propagate to this object.<br/>
-            - Click <strong>Convert</strong> to convert inherited parent folder permissions into explicit permissions on this folder/file <br/>
+            <strong>⚠️ Warning:</strong> if you proceed, inheritable permissions will no longer propagate to this object.<br/>
+            - Click <strong>Convert</strong> to convert inherited parent folder permissions into explicit (editable) permissions on this folder/file <br/>
             - Click <strong>Remove</strong> to remove inherited parent folder permissions from this object<br/>
             - Click <strong>Cancel</strong> if you do not want to modify inheritance settings at this time.<br/>
         </div>`).dialog({ // TODO: don't create this dialog on the fly
