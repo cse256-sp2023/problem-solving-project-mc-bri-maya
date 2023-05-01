@@ -4,7 +4,7 @@ var newEP = define_new_effective_permissions("new_permission", add_info_col = tr
 //Displaying the panel
 
 //Selecting user 
-var newUser = define_new_user_select_field("new_permission", "Select User", function (selected_user) {
+var newUser = define_new_user_select_field("new_user", "Select User", function (selected_user) {
     $('#new_permission').attr('username', selected_user);
 });
 
@@ -108,18 +108,20 @@ function make_file_element(file_obj) {
     }
 }
 
+// Title Edit Permissions panel
+$("#filestructure").append(`<div class="edit-perms-panel-title"><h2>Edit Permissions</h2></div>`)
+
 for(let root_file of root_files) {
     let file_elem = make_file_element(root_file)
-    $( "#filestructure" ).append( file_elem);    
+    $("#filestructure").append(file_elem);    
 }
-
-
 
 // make folder hierarchy into an accordion structure
 $('.folder').accordion({
     collapsible: true,
     heightStyle: 'content'
-}) // TODO: start collapsed and check whether read permission exists before expanding?
+}) 
+// TODO: start collapsed and check whether read permission exists before expanding?
 
 
 // -- Connect File Structure lock buttons to the permission dialog --
@@ -154,10 +156,13 @@ $('.permbutton').click( function( e ) {
 
 
 // ---- Assign unique ids to everything that doesn't have an ID ----
+
+
 $('#html-loc').find('*').uniqueId() 
 
-$("#sidepanel").append(`<div class = "file">CHECK the permissions for the relevant user and file before submitting!</div>`)
-
+// Title Effective Perms panel
+$("#sidepanel").append(`<div class="current-perms-panel-title"><h2>Current Permissions</h2></div>`)
+$("#sidepanel").append(`<div class="file">Select a user and folder/file to <strong>check</strong> the user's permissions.</div>`)
 
 $('#sidepanel').append(newEP)
 
