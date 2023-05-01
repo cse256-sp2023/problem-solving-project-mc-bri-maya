@@ -273,9 +273,8 @@ a.slide__next {
 
 /*Styling Selectbox*/
 .dropdown {
-  width: 300px;
   display: inline-block;
-  background-color: #fff;
+  background-color: #707070;
   border-radius: 2px;
   box-shadow: 0 0 2px rgb(204, 204, 204);
   transition: all .5s ease;
@@ -283,7 +282,12 @@ a.slide__next {
   font-size: 14px;
   color: #474747;
   height: 100%;
-  text-align: left
+  text-align: left;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+
+
 }
 .dropdown .select {
     cursor: pointer;
@@ -315,7 +319,7 @@ a.slide__next {
 }
 .dropdown .dropdown-menu {
     position: absolute;
-    background-color: #fff;
+    background-color: #707070;
     width: 100%;
     left: 0;
     margin-top: 1px;
@@ -341,4 +345,24 @@ a.slide__next {
 }
 .dropdown .dropdown-menu li:active {
     background-color: #e2e2e2
+}
+
+.slider-container {
+  height: 500px; /* Set the height to a fixed value */
+  overflow: scroll; /* Make the container scrollable */
+  display: flex; /* Use flexbox layout to align images horizontally */
+  align-items: center; /* Align images vertically */
+  justify-content: center; /* Align images horizontally */
+padding-top: 20%;
+}
+
+.slide-image {
+  width: 100%;
+}
+
+.slider-container-scroll {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  max-height: 300px;
 }

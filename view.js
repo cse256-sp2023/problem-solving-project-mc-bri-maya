@@ -40,35 +40,11 @@ function file_dropdown() {
 
 
 
-//Create a container to hold the file structure and images
-var steps = ["added_files/1-user-guide.png", "added_files/2-user-guide.png", "added_files/3-user-guide.png", "added_files/4-user-guide.png"];
 
-$("#sidepanel").after(`
 
-<div class="slider-container">      
-        <img class="slide-image" src="added_files/1-user-guide.png"/>
-        <img class="slide-image" src="added_files/2-user-guide.png"/>
-        <img class="slide-image" src="added_files/3-user-guide.png"/>
-        <img class="slide-image" src="added_files/4-user-guide.png"/>
-
-</div>
-
-`);
-
-$(window).on('unload', function() {
-    $(window).scrollTop(0);
- });
-
-//Style the container and the file structure container to display them side by side
-$(".float-container").css({
-  "padding":"2px",
-  "align-items":"center"
-  
-});
-
-$(".slide-image").css({
-    "max-width": "20%"
-  });
+// $(".slide-image").css({
+//     "max-width": "20%"
+//   });
 
 
 // ---- Display file structure ----
@@ -162,10 +138,38 @@ $('#html-loc').find('*').uniqueId()
 
 // Title Effective Perms panel
 $("#sidepanel").append(`<div class="current-perms-panel-title"><h2>Current Permissions</h2></div>`)
-$("#sidepanel").append(`<div class="file">Select a user and folder/file to <strong>check</strong> the user's permissions.</div>`)
-
-$('#sidepanel').append(newEP)
-
+$("#sidepanel").append(`<div class="file">Select a user and folder/file to <strong>check</strong> the user's current permissions for the selected folder/file.</div>`)
 $('#sidepanel').append(newUser)
 
 $('#sidepanel').append(file_dropdown());
+$('#sidepanel').append(newEP)
+
+
+
+//Create a container to hold the file structure and images
+var steps = ["added_files/1-user-guide.png", "added_files/2-user-guide.png", "added_files/3-user-guide.png", "added_files/4-user-guide.png"];
+$("#sidepanel").append(`<div class="current-perms-panel-title"><h2>Guide to Changing Permissions</h2></div>`)
+
+$("#sidepanel").append(`
+
+<div class="slider-container-scroll">      
+        <img class="slide-image" src="added_files/1-user-guide.png"/>
+        <img class="slide-image" src="added_files/2-user-guide.png"/>
+        <img class="slide-image" src="added_files/3-user-guide.png"/>
+        <img class="slide-image" src="added_files/4-user-guide.png"/>
+
+</div>
+
+`);
+
+$(window).on('unload', function() {
+    $(window).scrollTop(0);
+ });
+
+//Style the container and the file structure container to display them side by side
+$(".float-container").css({
+  "padding":"2px",
+  "align-items":"center"
+  
+});
+
